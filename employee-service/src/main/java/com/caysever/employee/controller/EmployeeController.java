@@ -15,7 +15,8 @@ public class EmployeeController {
 
     private static Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
-    @GetMapping("{organizationId}/employee")
+    // Add a leading slash to the path
+    @GetMapping("/{organizationId}/employee")
     public List<String> retrieve(@PathVariable("organizationId") String organizationId) {
         logger.info("Employee service running for " + organizationId);
         return Stream.of("Alican", "Onur", "Lemi", "Burak")
